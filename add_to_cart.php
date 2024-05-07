@@ -27,25 +27,44 @@ $itemPrice = isset($_POST['price']) ? $_POST['price'] : '';
 $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : '';
 $totalPrice = $itemPrice * $quantity;
 
-// Prepare an SQL statement to avoid SQL injection
-$insert_query = "INSERT INTO buying (username, productID, quantity, total_price) VALUES (:username, :itemName, :quantity, :totalPrice)";
-$stmt = $conn->prepare($insert_query);
-
-// Bind parameters
-$stmt->bindParam(':username', $_SESSION['username']);
+// Check product availability and fetch the current quantity
+$stmt = $conn->prepare("SELECT quantity FROM products WHERE productname = :itemName FOR UPDATE");
 $stmt->bindParam(':itemName', $itemName);
-$stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
-$stmt->bindParam(':totalPrice', $totalPrice);
+$stmt->execute();
+$product = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Execute the statement
+if (!$product || $product['quantity'] < $quantity) {
+    http_response_code(400); // Bad Request
+    exit("Insufficient quantity available.");
+}
+
+// Begin transaction
+$conn->beginTransaction();
+
 try {
+    // Insert purchase details into 'buying' table
+    $insert_query = "INSERT INTO buying (username, productID, quantity, total_price) VALUES (:username, :itemName, :quantity, :totalPrice)";
+    $stmt = $conn->prepare($insert_query);
+    $stmt->bindParam(':username', $_SESSION['username']);
+    $stmt->bindParam(':itemName', $itemName);
+    $stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
+    $stmt->bindParam(':totalPrice', $totalPrice);
     $stmt->execute();
-    // Item added to cart successfully
-    http_response_code(200); // Set HTTP response status code to 200 (OK)
-    echo "Item added to cart successfully.";
+
+    // Update product quantity in the 'products' table
+    $update_query = "UPDATE products SET quantity = quantity - :quantity WHERE productname = :itemName";
+    $stmt = $conn->prepare($update_query);
+    $stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
+    $stmt->bindParam(':itemName', $itemName);
+    $stmt->execute();
+
+    // Commit transaction
+    $conn->commit();
+    http_response_code(200); // OK
+    echo "Item added to cart successfully and inventory updated.";
 } catch (PDOException $e) {
-    // Failed to add item to cart
-    http_response_code(500); // Set HTTP response status code to 500 (Internal Server Error)
+    $conn->rollBack();
+    http_response_code(500); // Internal Server Error
     echo "Failed to add item to cart: " . $e->getMessage();
 }
 
@@ -53,3 +72,4 @@ try {
 $stmt = null;
 $conn = null;
 ?>
+// edited the table products to actually focus on quantity before getting to execute the transaction//
