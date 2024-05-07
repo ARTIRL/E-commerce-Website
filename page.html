@@ -187,7 +187,8 @@
               <h4>get help</h4>
               <ul>
                 <li><a href="#">Online Support</a></li>
-                <li><a href="#">Shop History</a></li>
+                <li><a href="#" id="shopHistory">Shop History</a>
+
                 <li><a href="#">Refunds</a></li>
                 <li><a href="#">payment options</a></li>
               </ul>
@@ -213,6 +214,25 @@
           </div>
         </div>
      </footer>
-    
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+     <script>
+     $(document).ready(function() {
+         $('#shopHistory').click(function(event) {
+             event.preventDefault();  // Prevent the default link behavior
+     
+             $.ajax({
+                 url: 'getHistory.php',  // Path to your PHP script
+                 type: 'GET',
+                 success: function(data) {
+                     alert(data);  // Display data in an alert box
+                 },
+                 error: function() {
+                     alert('Failed to retrieve purchase history.');  // Error handling
+                 }
+             });
+         });
+     });
+     </script>
 </body>
 </html>
