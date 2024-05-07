@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.header{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  display: flex;
+  align-items: center;
+  
+}
+.logo{
+  font-size: 32px;
+  color:#fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+.logo span{
+  color:#e32fe9;
+
+}
+
+body{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  min-height:100vh;
+  background-image: url("wallpaperflare.com_wallpaper.jpg");
+  background-size: cover;
+
+}
+.wrapper {
+  width: 420px;
+  background-color: transparent;
+  border: 2px solid rgba(255,255,255,.2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgba(0,0,0,0,.2);
+  color:#fff;
+  border-radius:10px;
+  padding: 30px 40px;
+
+}
+.wrapper h1 {
+  font: 36px;
+  text-align: center;
+}
+.wrapper .inputbox{
+  position: relative;
+  width: 100%;
+  height:50px;
+  margin:30px 0;
+}
+.inputbox input {
+  width:100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline:none;
+  border: 2px solid rgba(255,255,255,.2);
+  border-radius: 40px;
+  font-size: 14px;
+  padding:20px 45px 20px 20px;
+  color:#fff;
+
+}
+.inputbox input::placeholder{
+  color:#fff;
+}
+.inputbox i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
+.wrapper .remember-forgot{
+  display:flex;
+  justify-content: space-between;
+  font: 14.5px;
+  margin:-15px 0 15px;
+}
+.remember-forgot label input{
+  accent-color: #fff;
+  margin-right: 3px;
+
+
+}
+.remember-forgot a {
+  color:#fff;
+  text-decoration: none;
+  font-weight: 600;
+  
+}
+.remember-forgot a:hover{
+  background-size: 0 3px, 100% 3px;
+}
+.wrapper .btn{
+  width: 100%;
+  height: 45px;
+  
+  border: none;
+  outline:none;
+  border-radius: 40px;
+  box-shadow:0 0 10px rgba(0,0,0,.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  background: linear-gradient(-45deg,#9925ea,#ff33ff,#9925ea);
+
+}
+
+.register-link p a:hover {
+  background-size: 0 3px, 100% 3px;
+}
+
+.wrapper .register-link{
+  font-size: 14.5px;
+  text-align: center;
+  margin-top: 20px;
+
+}
+.register-link p a {
+  color:#fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.register-link p a {
+  background:
+  linear-gradient(
+    to right,
+    rgba(255, 0, 0, 0.073),
+    rgba(255, 0, 162, 0.044)
+  ),
+
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgba(255, 0, 180, 1),
+      rgba(0, 100, 200, 1)
+  );
+  background-size: 100% 3px, 0 3px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+  float: none;
+}
+.remember-forgot  a {
+  background:
+  linear-gradient(
+    to right,
+    rgba(255, 0, 0, 0.019),
+    rgba(255, 0, 162, 0.051)
+  ),
+
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgba(255, 0, 180, 1),
+      rgba(0, 100, 200, 1)
+  );
+  background-size: 100% 3px, 0 3px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+}

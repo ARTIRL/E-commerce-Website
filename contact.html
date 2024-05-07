@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+   
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="kys.css">
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Check for alert query parameter in URL
+          const urlParams = new URLSearchParams(window.location.search);
+          const alertMessage = urlParams.get('alert');
+          if (alertMessage) {
+            // Display alert with the message
+            alert(alertMessage);
+          }
+        });
+      </script>
+ <header class="header">
+    <a href="Welcome.html" class="logo"><span>Game</span>ZoneTn</a>
+</header>
+    <div class="container">
+        <form action="submit_form.php" method="POST">
+            <h1>Contact Us</h1>
+            <input type="text" name="firstName" id="firstName" placeholder="First Name" required>
+            <input type="text" name="userName" id="userName" placeholder="User Name" required>
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <input type="text" name="mobile" id="mobile" placeholder="Mobile" required>
+            <h4>Type Your Message Here...</h4>
+            <textarea name="message" required></textarea>
+            <input type="submit" value="Send" id="button">
+        </form>
+    </div>
+</body>
+</html>

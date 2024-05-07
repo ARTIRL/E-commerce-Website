@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="kys.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Account</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header class="header">
+        <a href="Welcome.html" class="logo"><span>Game</span>ZoneTn</a>
+    </header>
+
+    <div class="wrapper">
+        <form action="delete.php" method="post">
+            <h1>Delete Account Request</h1>
+
+            <div class="inputbox">
+                <label for="username"><i class='bx bxs-user'></i></label>
+                <input type="text" id="username" name="username" placeholder="Username" required>
+            </div>
+            <div class="inputbox">
+                <label for="password"><i class='bx bxs-lock-alt'></i></label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="inputbox">
+                <label for="email"><i class='bx bx-envelope'></i></label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+
+            <button type="submit" class="btn">Delete Account</button>
+
+            <div class="register-link">
+                <p>Note: Once you delete your account, all your data will be discarded including your shopping list!</p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

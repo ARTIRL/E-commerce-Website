@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="web.css">
+<title>GameZoneTn</title>
+</head>
+<body>
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+    </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Function to extract username from alert message
+      function extractUsername(alertMessage) {
+        const parts = alertMessage.split(' ');
+        return parts[1];
+      }
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const alertMessage = urlParams.get('alert');
+      if (alertMessage && alertMessage.startsWith('Welcome')) {
+        alert(alertMessage);
+        const username = extractUsername(alertMessage);
+        if (username) {
+          const signUpLink = document.querySelector('.menu-bar ul li a[href="INDEX.html"]');
+          if (signUpLink) {
+            signUpLink.textContent = "Log Out";
+            // Add event listener to Log Out link
+            signUpLink.addEventListener('click', function(event) {
+              event.preventDefault(); // Prevent default link behavior
+              // Redirect to logout script
+              window.location.href = "logout.php";
+            });
+          }
+        }
+      }
+      else if (alertMessage !=NULL){
+        alert(alertMessage);
+      }
+    });
+  </script>
+<div class="menu-bar">
+
+  <h1 class="logo"><a href="Welcome.html"><span>Game</span>ZoneTn</a></h1>
+  <ul>
+    <li><a href="page.html">Video Games</a></li>
+    <li>
+      <a href="page.html">Pc Gamers</a>
+    </li>
+    <li> <a href="page.html">Console Gamers</a></li>
+    <li><a href="giftcards.html">Gift Cards</a></li>
+    <li><a href="INDEX.html" id="lg">Sign Up</a></li>
+    
+    <li>
+      <div class="box">
+        
+        <input type="text" placeholder="Search..">
+        <a href="#" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+      </div>
+      </li>
+      <li>
+        <a href>
+          <i class="fas fa-shopping-basket"onclick="checkout()" ></i>
+        </a>
+      </li>
+      
+      </li>
+      
+      
+  </ul>
+</div>
+<div class="video">
+  <video autoplay muted loop >
+    <source src="MEG Trident X2 - Play Unbound _ Gaming Desktop _ MSI.mp4" type="video/mp4">
+  </video>
+
+</div>
+  <a href="page.html"> <button class="btn">Explore Our Products</button> </a>
+<div class="slideshow-container">
+<div class="mySlides fade" id="aziz">
+  <a href="#"><img src="keyboard.avif" ></a>
+  
+  <a href="#"><img src="storage.avif" alt="Image 6"></a>
+  <a href="#"> <img src="monitor.avif" alt="Image 4" ></a>
+    <a href="#"><img src="gfur.avif" alt="Image 5"></a>
+</div>
+<div class="mySlides fade">
+  <a href="#"> <img src="headset.avif" ></a>
+    <a href="#"><img src="fans.avif" alt="Image 7"></a>
+      <a href="#"> <img src="customcooling.avif"></a>
+        <a href="#"> <img src="pc.avif"></a>
+</div>
+<div class="mySlides fade" >
+  <a href="#"> <img src="laptop.avif" ></a>
+    <a href="#"> <img src="custom.avif" alt="Image 8"></a>
+      <a href="#"> <img src="gp.avif" alt=""></a>
+        <a href="#"> <img src="mice.avif" alt=""></a>
+</div>
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+<div style="text-align:center">
+<span class="dot" onclick="currentSlide(1)"></span>
+<span class="dot" onclick="currentSlide(2)"></span>
+<span class="dot" onclick="currentSlide(3)"></span>
+</div>
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col">
+          <h4>GameZoneTn</h4>
+          <ul>
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="Delete.html">Delete Account</a></li>   
+            <li><a href="logout.php">Log Out</a></li>   
+            <li><a href="INDEX.html">Log In</a></li>      
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>get help</h4>
+          <ul>
+            <li><a href="#">Online Support</a></li>
+            <li><a href="#">Shop History</a></li>
+            <li><a href="#">Refunds</a></li>
+            <li><a href="#">payment options</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Shop Now</h4>
+          <ul>
+            <li><a href="#">Video Games</a></li>
+            <li><a href="#">Console Gamers</a></li>
+            <li><a href="#">Gift Cards</a></li>
+            <li><a href="#">Pc Gamers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>follow us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+ </footer>
+
+</body>
+</html>

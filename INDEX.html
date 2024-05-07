@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="kys.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Us</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Check for alert query parameter in URL
+          const urlParams = new URLSearchParams(window.location.search);
+          const alertMessage = urlParams.get('alert');
+          if (alertMessage) {
+            // Display alert with the message
+            alert(alertMessage);
+          }
+        });
+      </script>
+    <header class="header">
+        <a href="Welcome.html" class="logo"><span>Game</span>ZoneTn</a>
+    </header>
+    <div class="wrapper">
+        <form action="login1.php" method="POST" id="logform">
+            <h1>Login</h1>
+            <div class="inputbox">
+                <label for="user"><i class='bx bxs-user'></i></label>
+                <input type="text" id="user" name="user" placeholder="Username" required>
+            </div>
+            <div class="inputbox">
+                <label for="pd"><i class='bx bxs-lock-alt'></i></label>
+                <input type="password" id="pd" name="pd" placeholder="Password" required>
+            </div>
+
+            <div class="remember-forgot">
+               <label><input type="checkbox" id="remember" name="remember">Remember me</label> 
+               <a href="index3.html">Forgot Password?</a>
+            </div>
+
+            <button type="submit" id="login" class="btn">Login</button>
+
+            <div class="register-link">
+                <p>Don't have an account? <a href="index2.html">Register Now</a></p>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

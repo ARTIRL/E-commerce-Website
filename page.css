@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+body {
+    background-color: black; /* Set background color to black */
+    color: white; /* Set text color to white */
+  font-family: sans-serif;
+}
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  background-size: cover;
+  background-color: #060000;
+ 
+}
+
+
+.logo {
+  color: #e9e9e9;
+  font-size: 32px;
+  text-decoration: none;
+  font-weight: 700;
+  
+}
+.logo span {
+  color: #e32fe9;
+}
+.menu-bar {
+  background-color:  #0b0e11;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  position: relative;
+}
+.menu-bar ul {
+  list-style: none;
+  display: flex;
+}
+.menu-bar ul li {
+  padding: 10px 24px;
+  position: relative;
+}
+.menu-bar ul li a {
+  font-size: 20px;
+  color: #e9e9e9;
+  text-decoration: none;
+  background:
+  linear-gradient(
+    to right,
+    rgba(255, 0, 0, 0.073),
+    rgba(255, 0, 162, 0.044)
+  ),
+
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgba(255, 0, 180, 1),
+      rgba(0, 100, 200, 1)
+  );
+  background-size: 100% 3px, 0 3px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+}
+.menu-bar ul li a:hover {
+  /*color: #e32fe9;*/
+  background-size: 0 3px, 100% 3px;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: #141d28;
+  transition: opacity 0.8s; /* Add a transition for opacity */
+  opacity: 0; /* Initially set opacity to 0 */
+}
+.menu-bar ul li:hover .dropdown-menu {
+  display: block;
+  opacity: 1; /* Change opacity to 1 on hover */
+}
+.menu-bar ul li:hover .dropdown-menu ul {
+  display: block;
+  margin: 10px;
+}
+.menu-bar ul li:hover .dropdown-menu ul li {
+  width: 150px;
+  padding: 10px;
+}  
+  .containerr {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .product {
+    display: flex;
+    margin-bottom: 70px;
+  }
+  
+  .image {
+    flex: 0 0 200px;
+    margin-right: 20px;
+  }
+  
+  .image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .description {
+    flex: 1;
+  }
+  
+  
+  button.add-to-cart {
+    padding: 10px 20px;
+    color: #e8e500; /* Text color */
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: none; /* No background color */
+    position: relative; /* Required for positioning the pseudo-element */
+    font-size: 18px;
+  }
+  
+  button.add-to-cart::after {
+    content: '>'; /* Add the ">" shape */
+    position: absolute;
+    top: 50%;
+    right: 5px; /* Initial position */
+    transform: translateY(-50%);
+    transition: left 0.3s; /* Add transition for smooth effect */
+  }
+  
+  button.add-to-cart:hover::after {
+   left: 20px; /* Move the symbol to the right on hover */
+  }
+  
+  button.add-to-cart:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  .banner {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+    z-index: -1; 
+}
+  
+  .banner img {
+    width: 100%;
+    height:300px;
+    filter: blur(5px);
+    border: 1px solid white;
+  }
+  
+  .banner-text {
+    font-weight: bold; 
+    position: absolute;
+    top: 50%;
+    left: 50px; /* Align text to the left */
+    transform: translateY(-50%);
+    font-size: 38px;
+    color: white;
+    padding: 10px 20px;
+   
+    line-height: 1.5;
+  }
+  .number-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Add margin to separate from the products */
+  }
+  
+  .number-buttons button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    color: #333;
+    cursor: pointer;
+  }
+  .number-buttons button:hover {
+    background-color: #e8e500; /* Change background color on hover */
+    color: #fff; /* Change text color on hover */
+  }
+.footer{
+ margin-top: 10px;
+}
+  

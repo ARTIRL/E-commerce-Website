@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="page.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="web.css">
+  <title>Join Us</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <script>
+    let cart = [];
+    
+    function addToCart(productName) {
+        cart.push(productName);
+        updateCartDisplay();
+    }
+    
+    function updateCartDisplay() {
+        const cartList = document.getElementById("cart-items");
+        cartList.innerHTML = "";
+        cart.forEach((product, index) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = product;
+            cartList.appendChild(listItem);
+        });
+    }
+    function toggleCart(name) {
+        const cartList = document.getElementById("ayoub");
+        cartList.style.display = cartList.style.display === "none" ? "block" : "none";
+    }
+    function checkout() {
+        if (cart.length === 0) {
+            alert("Your cart is empty.");
+        } else {
+            alert("Checkout complete! Your items:\n" + cart.join("\n"));
+            cart = [];
+            updateCartDisplay();
+        }
+    }
+    </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Function to extract username from alert message
+      function extractUsername(alertMessage) {
+        const parts = alertMessage.split(' ');
+        return parts[1];
+      }
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const alertMessage = urlParams.get('alert');
+      if (alertMessage && alertMessage.startsWith('Welcome')) {
+        alert(alertMessage);
+        const username = extractUsername(alertMessage);
+        if (username) {
+          const signUpLink = document.querySelector('.menu-bar ul li a[href="INDEX.html"]');
+          if (signUpLink) {
+            signUpLink.textContent = "Log Out";
+            // Add event listener to Log Out link
+            signUpLink.addEventListener('click', function(event) {
+              event.preventDefault(); // Prevent default link behavior
+              // Redirect to logout script
+              window.location.href = "logout.php";
+            });
+          }
+        }
+      }
+      else if (alertMessage !=NULL){
+        alert(alertMessage);
+      }
+    });
+  </script>
+<div class="menu-bar">
+
+  <h1 class="logo"><a href="Welcome.html"><span>Game</span>ZoneTn</a></h1>
+  <ul>
+    <li><a href="page.html">Video Games</a></li>
+    <li>
+      <a href="page.html">Pc Gamers</a>
+    </li>
+    <li> <a href="page.html">Console Gamers</a></li>
+    <li><a href="giftcards.html">Gift Cards</a></li>
+    <li><a href="INDEX.html" id="lg">Sign Up</a></li>
+    
+    <li>
+      <div class="box">
+        
+        <input type="text" placeholder="Search..">
+        <a href="#" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+      </div>
+      </li>
+      <li>
+        <a href>
+          <i class="fas fa-shopping-basket"onclick="checkout()" ></i>
+        </a>
+      </li>
+      
+      </li>
+      
+      
+  </ul>
+</div>
+<div class="banner">
+  <img src="oo.jpg" alt="Hot New Products">
+  <div class="banner-text">HOT NEW <br>PRODUCTS</div>
+</div>
+<div class="containerr">
+  <div class="product">
+      <div class="image">
+          <a href="product-detail.html"><img src="19.avif" alt="Product 1"></a>
+      </div>
+      <div class="description">
+          <h2>CORSAIR XENEON 315QHD165 32-Inch IPS Gaming Monitor, QHD (2560 x 1440), 165Hz, 1ms, HDR-ready, 1.07 Billion Colors</h2>
+          <p>IPS Panel with superb color accuracy and consistency, Adaptive Sync Technology, Adjustable height, tilt, and swivel, VESA compatible 100mm x 100mm, 3-Year Warranty</p>
+          <button onclick="addToCart('CORSAIR XENEON 315QHD165 Monitor')" class="add-to-cart">Add to Cart </button>
+      </div>
+  </div>
+  <div class="product">
+      <div class="image">
+          <a href="product-detail1.html"><img src="20.avif" alt="Product 2"></a>
+      </div>
+      <div class="description">
+          <h2>iCUE LINK RX120 RGB 120mm PWM Fan Triple Starter Kit</h2>
+          <p>CORSAIR RX120 RGB PWM fans deliver cooling performance by pushing high airflow through obstructions with high static pressure and CORSAIR AirGuide technology. Advanced performance blade shape</p>
+          <button onclick="addToCart('iCUE LINK RX120 Fan Kit')" class="add-to-cart">Add to Cart </button>
+      </div>
+  </div>
+  <div class="product">
+      <div class="image">
+          <a href="product-detail2.html"><img src="21.avif" alt="Product 3"></a>
+      </div>
+      <div class="description">
+          <h2>6500D AIRFLOW Mid-Tower Dual Chamber PC Case - Black</h2>
+          <p>The CORSAIR 6500D AIRFLOW Mid-Tower Dual Chamber PC Case delivers exceptional airflow and cooling with fully mesh paneling and a dual chamber design for an organized, stunning build...</p>
+          <button onclick="addToCart('6500D AIRFLOW PC Case')" class="add-to-cart">Add to Cart </button>
+      </div>
+  </div>
+  <div class="product">
+      <div class="image">
+          <a href="product-detail3.html"><img src="22.avif" alt="Product 4"></a>
+      </div>
+      <div class="description">
+          <h2>MP700 PRO 4TB Hydro X Series PCIe Gen5 x4 NVMe 2.0 M.2 SSD</h2>
+          <p>Experience the performance of PCIe Gen5 storage with water-cooled block in your system, with unbelievable sequential read and write speeds using the high-bandwidth NVMe 2.0 interface.</p>
+          <button onclick="addToCart('MP700 PRO 4TB SSD')" class="add-to-cart">Add to Cart </button>
+      </div>
+  </div>
+  <div class="product">
+      <div class="image">
+          <a href="product-detail4.html"><img src="4.avif" alt="Product 5"></a>
+      </div>
+      <div class="description">
+          <h2>HXi Series™ HX1200i Fully Modular Ultra-Low Noise Platinum ATX 1200 Watt PC Power Supply</h2>
+          <p>Compatible with NVIDIA 4000 series and AMD® Ryzen 7000 series GPUs. Fluid Dynamic Bearing fan with Zero RPM mode. 105°C rated 100% Japanese electrolytic capacitors.</p>
+          <button onclick="addToCart('HX1200i Power Supply')" class="add-to-cart">Add to Cart </button>
+      </div>
+  </div>
+</div>
+<div class="number-buttons">
+  <a href="page.html" ><button>1</button></a>
+  <a href="page2.html" > <button>2</button></a>
+</div>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="footer-col">
+              <h4>GameZoneTn</h4>
+              <ul>
+                <li><a href="contact.html">Contact us</a></li>
+                <li><a href="#">privacy policy</a></li>   
+                <li><a href="logout.php">Log Out</a></li>   
+                <li><a href="INDEX.html">Log In</a></li>      
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>get help</h4>
+              <ul>
+                <li><a href="#">Online Support</a></li>
+                <li><a href="#">Shop History</a></li>
+                <li><a href="#">Refunds</a></li>
+                <li><a href="#">payment options</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Shop Now</h4>
+              <ul>
+                <li><a href="#">Video Games</a></li>
+                <li><a href="#">Console Gamers</a></li>
+                <li><a href="#">Gift Cards</a></li>
+                <li><a href="#">Pc Gamers</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>follow us</h4>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+     </footer>
+    
+</body>
+</html>

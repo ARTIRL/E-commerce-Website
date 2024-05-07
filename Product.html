@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="web.css">
+<title>Dropdown Menu</title>
+</head>
+<body>
+
+    <div class="menu-bar">
+
+        <h1 class="logo"><a href="Welcome.html"><span>Game</span>ZoneTn</a></h1>
+        <ul>
+          <li><a href="page.html">Video Games</a></li>
+          <li>
+            <a href="page.html">Pc Gamers</a>
+          </li>
+          <li> <a href="page.html">Console Gamers</a></li>
+          <li><a href="giftcards.html">Gift Cards</a></li>
+          <li><a href="INDEX.html" id="lg">Sign Up</a></li>
+          
+          <li>
+            <div class="box">
+              
+              <input type="text" placeholder="Search..">
+              <a href="#" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+            </li>
+            <li>
+              <a href>
+                <i class="fas fa-shopping-basket"onclick="checkout()" ></i>
+              </a>
+            </li>
+            
+            </li>
+            
+            
+        </ul>
+      </div>
+
+<div class="flex-box">
+    <div class="left">
+        <div class="big-img">
+            <img src="img/Cyborg.png">
+        </div>
+        <div class="images">
+            <div class="small-img">
+                <img src="img/Cyborg2.png"onclick="showImg(this.src)">
+            </div>
+            <div class="small-img">
+                <img src="img/Cyborg3.png" onclick="showImg(this.src)">
+            </div>
+            <div class="small-img">
+                <img src="img/Cyborg4.png" onclick="showImg(this.src)">
+            </div>
+            <div class="small-img">
+                <img src="img/cyborg5.png" onclick="showImg(this.src)">
+            </div>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="url"><a href="Welcome.html">GameZoneTN </a>> <a href="#">Pc Gamers</a> > MSI</div>
+        <div class="pname">Cyborg 14 A13V</div>
+        <div class="ratings">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <div class="Des">
+            <ul>
+                <li>
+                    Up to Intel® Core™ i7-13620H processor
+                </li>
+                <li>Windows 11 Home / Windows 11 Pro
+                    (MSI recommends Windows 11 Pro for business.)</li>
+            <li>Up to latest GeForce RTX™ 4060 Laptop GPU 8GB GDDR6
+                Powered by NVIDIA DLSS 3, ultra-efficient Ada Lovelace arch, and Max-Q Technologies.</li>
+               <li>MSI AI Engine adjusts various system settings automatically to best fit your needs</li> 
+            <li>
+                14” FHD+ (1920x1200), 144 Hz Refresh Rate, IPS-Level panel (Optional)
+            </li>
+            </ul>
+        </div>
+        <div class="price">3000</div>
+        <div class="size">
+            <p>Available :</p>
+            <div class="psize active">Yes</div>
+            <div class="psize">No</div>
+
+        </div>
+        <div class="quantity">
+            <p>Quantity :</p>
+            <input type="number" min="1" max="5" value="1">
+        </div>
+        <div class="btn-box">
+            <button class="cart-btn" onclick="addToCart()">Add to Cart</button>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+
+    
+</div>
+</div>
+
+<div class="video" id="videoSection">
+    <video controls muted autoplay loop style="max-width: 100%;">
+        <source src="Cyborg 14 A13V - Cyber-Up! _ MSI.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<script>
+    let bigImg = document.querySelector('.big-img img');
+    function showImg(pic){
+        bigImg.src = pic;
+    }
+    // Function to check if an element is in the viewport
+function isInViewport(element) {
+    var rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Function to start autoplaying the video when it's in the viewport
+function autoplayVideoIfInView() {
+    var videoSection = document.getElementById('videoSection');
+    var video = videoSection.querySelector('video');
+
+    if (isInViewport(videoSection)) {
+        video.play();
+    }
+}
+
+// Event listener to check if the video section comes into view
+window.addEventListener('scroll', function() {
+    autoplayVideoIfInView();
+});
+function addToCart() {
+    // Get item details
+    let itemName = document.querySelector('.pname').innerText;
+    
+    var itemPrice = document.querySelector('.price').innerText;
+   
+    var quantity = document.querySelector('.quantity input').value; 
+    
+    // Send AJAX request to PHP script
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'add_to_cart.php');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+        // Handle response from PHP script
+        if (xhr.status === 200) {
+            alert('Item added to cart successfully!');
+        } else {
+            alert('Failed to add item to cart.');
+        }
+    };
+    
+    // Construct the data to be sent
+    var data = 'name=' + encodeURIComponent(itemName) + '&price=' + encodeURIComponent(itemPrice) + '&quantity=' + encodeURIComponent(quantity);
+    
+    // Send the data
+    xhr.send(data);
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

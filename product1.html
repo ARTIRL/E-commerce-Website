@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="web.css">
+<title>Dropdown Menu</title>
+</head>
+<body>
+    <div class="menu-bar">
+
+        <h1 class="logo"><a href="Welcome.html"><span>Game</span>ZoneTn</a></h1>
+        <ul>
+          <li><a href="page.html">Video Games</a></li>
+          <li>
+            <a href="page.html">Pc Gamers</a>
+          </li>
+          <li> <a href="page.html">Console Gamers</a></li>
+          <li><a href="giftcards.html">Gift Cards</a></li>
+          <li><a href="INDEX.html" id="lg">Sign Up</a></li>
+          
+          <li>
+            <div class="box">
+              
+              <input type="text" placeholder="Search..">
+              <a href="#" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+            </li>
+            <li>
+              <a href>
+                <i class="fas fa-shopping-basket"onclick="checkout()" ></i>
+              </a>
+            </li>
+            
+            </li>
+            
+            
+        </ul>
+      </div>
+
+<div class="flex-box">
+    <div class="left">
+        <div class="big-img">
+            <img src="product1.avif">
+        </div>
+        <div class="images">
+            <div class="small-img">
+                <img src="product1.avif"onclick="showImg(this.src)">
+            </div>
+            <div class="small-img">
+                <img src="first.png" onclick="showImg(this.src)">
+            </div>
+            <div class="small-img">
+                <img src="second.png" onclick="showImg(this.src)">
+            </div>
+            <div class="small-img">
+                <img src="thirsd.png" onclick="showImg(this.src)">
+            </div>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="url"><a href="Welcome.html">GameZoneTN </a>> <a href="#">Pc Gamers</a> > MSI</div>
+        <div class="pname">6500D AIRFLOW Mid-Tower Dual Chamber PC Case - Black
+        </div>
+        <div class="ratings">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+        </div>
+        <div class="Des">
+            <ul>
+                <li>
+                    Dual chambers for a streamlined look
+                </li>
+                <li>Lots of customization options</li>
+            <li>exceptional airflow and cooling with fully mesh paneling and a dual chamber design for an organized.</li>
+               <li>Unrivaled airflow performance</li> 
+            <li>
+                Compatible with reverse connector motherboard
+            </li>
+            </ul>
+        </div>
+        <div class="price">199</div>
+        <div class="size">
+            <p>Available :</p>
+            <div class="psize active">Yes</div>
+            <div class="psize">No</div>
+
+        </div>
+        <div class="quantity">
+            <p>Quantity :</p>
+            <input type="number" min="1" max="5" value="1">
+        </div>
+        <div class="btn-box">
+            <button class="cart-btn" onclick="addToCart()">Add to Cart</button>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </div>
+</div>
+<div class="cart">
+    <h2>Cart</h2>
+    <ul id="cart-list"></ul>
+</div>
+</div>
+
+<script>
+    let bigImg = document.querySelector('.big-img img');
+    function showImg(pic){
+        bigImg.src = pic;
+    }
+    // Function to check if an element is in the viewport
+function isInViewport(element) {
+    var rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Function to start autoplaying the video when it's in the viewport
+function autoplayVideoIfInView() {
+    var videoSection = document.getElementById('videoSection');
+    var video = videoSection.querySelector('video');
+
+    if (isInViewport(videoSection)) {
+        video.play();
+    }
+}
+
+// Event listener to check if the video section comes into view
+window.addEventListener('scroll', function() {
+    autoplayVideoIfInView();
+});
+function addToCart() {
+    // Get item details
+    let itemName = document.querySelector('.pname').innerText;
+    
+    var itemPrice = document.querySelector('.price').innerText;
+   
+    var quantity = document.querySelector('.quantity input').value; 
+    
+    // Send AJAX request to PHP script
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'add_to_cart.php');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+        // Handle response from PHP script
+        if (xhr.status === 200) {
+            alert('Item added to cart successfully!');
+        } else {
+            alert('Failed to add item to cart.');
+        }
+    };
+    
+    // Construct the data to be sent
+    var data = 'name=' + encodeURIComponent(itemName) + '&price=' + encodeURIComponent(itemPrice) + '&quantity=' + encodeURIComponent(quantity);
+    
+    // Send the data
+    xhr.send(data);
+}
+
+</script>
+</body>
+</html>
